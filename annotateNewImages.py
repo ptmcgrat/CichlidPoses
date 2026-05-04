@@ -21,8 +21,8 @@ for species in all_species:
 # Process results list
 for species in all_species:
     for im_file in image_files[species]:
-        result_fd = model_fd(im_file)
-        result_cd = model_cd(im_file)
+        result_fd = model_fd(im_file, verbose = False)
+        result_cd = model_cd(im_file, verbose = False)
 
         img = Image.open(im_file)
         img = ImageOps.exif_transpose(img)
