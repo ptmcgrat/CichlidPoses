@@ -14,7 +14,7 @@ model_cp = YOLO(fm_obj.localMLMDir + 'ColorPose/weights/best.pt')
 image_files = {}
 all_species = os.listdir(fm_obj.localProjectDir + 'Parentals')
 for species in all_species:
-    image_files[species] = [fm_obj.localProjectDir + 'Parentals/' + x for x in os.listdir(fm_obj.localProjectDir + 'Parentals/' + species) if '.jpg' in x]
+    image_files[species] = [fm_obj.localProjectDir + 'Parentals/' + species + '/' + x for x in os.listdir(fm_obj.localProjectDir + 'Parentals/' + species) if '.jpg' in x]
 # Run batched inference on a list of images
 #results = model(image_files)  # return a list of Results objects
 # Process results list
