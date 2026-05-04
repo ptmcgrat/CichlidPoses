@@ -38,11 +38,4 @@ for species in all_species:
         result_cp[0].save(fm_obj.localProjectDir + 'Outputs/ColorBox/'+im_file.split('/')[-1])
 
 pdb.set_trace()
-    #boxes = result.boxes  # Boxes object for bounding box outputs
-    #masks = result.masks  # Masks object for segmentation masks outputs
-    #keypoints = result.keypoints  # Keypoints object for pose outputs
-    #probs = result.probs  # Probs object for classification outputs
-    #obb = result.obb  # Oriented boxes object for OBB outputs
-    result[0].show()  # display to screen
-    pdb.set_trace()
-    #result.save(filename="result.jpg")  # save to disk
+    
