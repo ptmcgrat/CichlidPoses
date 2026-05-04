@@ -17,10 +17,12 @@ for species in all_species:
     image_files[species] = [fm_obj.localProjectDir + 'Parentals/' + x for x in os.listdir(fm_obj.localProjectDir + 'Parentals/' + species) if '.jpg' in x]
 # Run batched inference on a list of images
 #results = model(image_files)  # return a list of Results objects
-pdb.set_trace()
 # Process results list
-for im_file in image_files:
-    result = model3(im_file)
+for species in all_species:
+    for im_file in image_files[species]:
+        result_fd = model_fd(im_file)
+        result_cd = model_cd(im_file)
+        pdb.set_trace()
     #boxes = result.boxes  # Boxes object for bounding box outputs
     #masks = result.masks  # Masks object for segmentation masks outputs
     #keypoints = result.keypoints  # Keypoints object for pose outputs
