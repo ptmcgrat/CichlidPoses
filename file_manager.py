@@ -6,9 +6,9 @@ class FileManager():
 		
 		# Set master directories/remotes
 		if platform.node() == 'ebb-utaka.biosci.gatech.edu' or platform.node() == 'utaka.biosci.gatech.edu' or 'utaka' in platform.node():
-			self.localMasterDir = '/Data/' + os.getenv('USER') + '/Temp/CichlidSequencingData/'
+			self.localMasterDir = '/Data/' + os.getenv('USER') + '/Temp/CichlidMorphometricData/'
 		else:
-			self.localMasterDir = os.getenv('HOME').rstrip('/') + '/' + 'Temp/CichlidSequencingData/' #Master directory for local data
+			self.localMasterDir = os.getenv('HOME').rstrip('/') + '/' + 'Temp/CichlidMorphometricData/' #Master directory for local data
 		
 		self.rcloneRemote = rcloneRemote
 		self.cloudMasterDir = self.rcloneRemote + masterDir
