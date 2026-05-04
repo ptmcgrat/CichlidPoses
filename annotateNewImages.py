@@ -1,10 +1,16 @@
 from ultralytics import YOLO
 import os, pdb
-# Load a model
-#model = YOLO('runs/pose/ColorGuideModel/ColorGuide/weights/best.pt')  # pretrained YOLO26n model
-#model2 = YOLO('runs/pose/FishPoseModel/FishPose/weights/best.pt')  # pretrained YOLO26n model
-model3 = YOLO('runs/obb/ColorGuideModel/ColorGuide/weights/best.pt')
-model4 = YOLO('runs/detect/FishPoseModel/FishPose/weights/best.pt')
+from file_manager import FileManager as FM
+
+fm_obj = FM()
+fm_obj.downloadData(fm_obj.localMLMDir)
+fm_obj.downloadData(fm_obj.localProjectDir)
+
+model_fd = YOLO(fm_obj.localMLMDir + 'FishDetect/weights/best.pt')
+model_cd = YOLO(fm_obj.localMLMDir + 'ColorDetect/weights/best.pt')
+model_fp = YOLO(fm_obj.localMLMDir + 'FishPose/weights/best.pt')
+model_cp = YOLO(fm_obj.localMLMDir + 'ColorPose/weights/best.pt')
+
 image_files = ['Parentals/' + x for x in os.listdir('Parentals') if x[0] != '.' and 'FINS' not in x]
 # Run batched inference on a list of images
 #results = model(image_files)  # return a list of Results objects
