@@ -20,7 +20,7 @@ class FileManager():
 
 		self.localAnnotationsDir = self.localMasterDir + '__AnnotatedData/'	
 		self.localMLMDir = self.localMasterDir + '__MachineLearningModels/'		
-		self.localProjectDir = self.localMasterDir + '__ProjectDir/'
+		self.localProjectDir = self.localMasterDir + '__ProjectData/'
 
 	def downloadData(self, local_data, tarred = False, tarred_subdirs = False, parallel = False, rclone=False):
 
