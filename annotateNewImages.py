@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 import os, pdb
 from file_manager import FileManager as FM
+from PIL import Image, ImageOps
 
 fm_obj = FM()
 fm_obj.downloadData(fm_obj.localMLMDir)
@@ -22,6 +23,14 @@ for species in all_species:
     for im_file in image_files[species]:
         result_fd = model_fd(im_file)
         result_cd = model_cd(im_file)
+
+        img = Image.open(im_file)
+        img = ImageOps.exif_transpose(img)
+        crop_fd = result_fd[0].boxes[0].xyxy.cpu().numpy()[0]
+        crop_cd = result_cd[0].boxes[0].xyxy.cpu().numpy()[0]
+
+        result_fp =model_fp(img.crop(crop_fd))
+        result_cp =model_fp(img.crop(crop_cd))
         pdb.set_trace()
     #boxes = result.boxes  # Boxes object for bounding box outputs
     #masks = result.masks  # Masks object for segmentation masks outputs
